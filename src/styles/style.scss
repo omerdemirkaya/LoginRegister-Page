@@ -211,6 +211,9 @@
       font-size: 2vh;
       font-family: 'Courier New', Courier, monospace;
       font-weight: bold;
+      &:hover{
+        background: linear-gradient(to right, #fff, yellowgreen, #fff);
+      }
     }
   }
 }
