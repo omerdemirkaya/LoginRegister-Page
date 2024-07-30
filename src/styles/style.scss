@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
   background-color: black;
-  overflow: hidden; // Scroll çıkmasını engellemek için
+  overflow: hidden; 
 }
 
 .grid-container {
@@ -20,15 +20,9 @@
   grid-template-rows: repeat(20, 1fr);
   gap: 5px;
   z-index: 0;
-  pointer-events: none; // Hover olaylarını etkinleştirmek için
+  pointer-events: none; 
   background: linear-gradient(yellowgreen, transparent);
   animation: slide 10s linear infinite;
-  @media (max-width: 1024px) {
-    .grid-container {
-      background: none; /* Arka plan rengini kaldırır */
-      animation: none; /* Animasyonu kaldırır */
-    }
-  }
   @keyframes slide {
     0% {
         transform: translateY(-100%);
@@ -43,11 +37,11 @@
 
   .grid-item {
     background-color: black;
-    padding-top: 100%; // Kare yapımı için
+    padding-top: 100%;
     
     position: relative;
     transition: background-color 3s;
-    pointer-events: auto; // Hover olaylarını etkinleştirmek için
+    pointer-events: auto;
 
     &:hover {
       background-color: greenyellow;
@@ -62,10 +56,10 @@
   justify-content: center;
   align-items: center;
   width: 30%;
-  max-width: 800px; /* Maksimum genişlik ayarı */
-  margin: 0 auto; /* Ortalamayı sağlar */
-  padding: 20px; /* İç boşluk ekler */
-  box-sizing: border-box; /* Padding ve border'ın genişliği hesaplamaya dahil edilmesini sağlar */
+  max-width: 800px;
+  margin: 0 auto; 
+  padding: 20px; 
+  box-sizing: border-box; 
 }
 @media only screen and (max-width: 1024px) {
   .register-container {
