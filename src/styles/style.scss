@@ -181,7 +181,8 @@
       align-items: center;
       justify-content: center;
       word-wrap: break-word;
-
+      word-break: break-all;
+      
       &:last-child {
         border: none;
       }
