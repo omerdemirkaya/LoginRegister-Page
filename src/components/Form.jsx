@@ -1,12 +1,26 @@
 import { useState } from "react";
-
+import useStore from "../store";
+import { useNavigate } from "react-router-dom";
 const Form = () => {
   const [isLogging, setIsLogging] = useState(false);
-
+  const {addUser} = useStore();
   const handleSwitch = (event) => {
-    event.preventDefault(); // Prevent the default link behavior
-    setIsLogging(!isLogging); // Toggle the state
+    event.preventDefault(); 
+    setIsLogging(!isLogging); 
   };
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      const name = formData.get("username") || "";
+      const email = formData.get("email");
+      const password = formData.get("password");
+      addUser(name,email,password);
+      console.log(name,email,password);
+      navigate("/profile");
+  }
 
   return (
     <div className="register-container">
@@ -15,7 +29,7 @@ const Form = () => {
           <h3>{isLogging ? "Login" : "Sign Up"}</h3>
         </div>
         <div className="form-content">
-          <form>
+          <form onSubmit={handleSubmit}>
             {!isLogging && (
               <div className="form-group">
                 <input type="text" name="username" placeholder="isim" required />

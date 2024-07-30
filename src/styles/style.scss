@@ -6,151 +6,209 @@
   justify-content: center;
   align-items: center;
   background-color: black;
-  overflow: hidden; // Scroll çıkmasını engellemek için
-}
+  overflow: hidden; 
 
-.grid-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: repeat(20, 1fr);
-  grid-template-rows: repeat(20, 1fr);
-  gap: 5px;
-  z-index: 0;
-  pointer-events: none; // Hover olaylarını etkinleştirmek için
-  background: linear-gradient(yellowgreen, transparent);
-  animation: slide 10s linear infinite;
-  @media (max-width: 1024px) {
-    .grid-container {
-      background: none; /* Arka plan rengini kaldırır */
-      animation: none; /* Animasyonu kaldırır */
-    }
-  }
-  @keyframes slide {
-    0% {
-        transform: translateY(-100%);
-    }
-    50% {
-        transform: translateY(0);
-    }
-    100%{
-        transform: translateY(100%);
-    }
-}
-
-  .grid-item {
-    background-color: black;
-    padding-top: 100%; // Kare yapımı için
-    
-    position: relative;
-    transition: background-color 3s;
-    pointer-events: auto; // Hover olaylarını etkinleştirmek için
-
-    &:hover {
-      background-color: greenyellow;
-      transition: background-color 0.5s;
-    }
-  }
-}
-.register-container {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30%;
-  max-width: 800px; /* Maksimum genişlik ayarı */
-  margin: 0 auto; /* Ortalamayı sağlar */
-  padding: 20px; /* İç boşluk ekler */
-  box-sizing: border-box; /* Padding ve border'ın genişliği hesaplamaya dahil edilmesini sağlar */
-}
-@media only screen and (max-width: 1024px) {
-  .register-container {
-    width: 70%;
-  }
-}
-@media only screen and (max-width: 768px) {
-  .register-container {
-    width: 80%;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .register-container {
+  .grid-container {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    gap: 5px;
+    z-index: 0;
+    pointer-events: none; 
+    background: linear-gradient(yellowgreen, transparent);
+    animation: slide 10s linear infinite;
+
+    @keyframes slide {
+      0% {
+        transform: translateY(-100%);
+      }
+      50% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(100%);
+      }
+    }
+
+    .grid-item {
+      background-color: black;
+      padding-top: 100%; 
+      position: relative;
+      transition: background-color 3s;
+      pointer-events: auto; 
+
+      &:hover {
+        background-color: greenyellow;
+        transition: background-color 0.5s;
+      }
+    }
   }
-}
 
-
-.form-container {
-  width: 100%;
-  padding: 2rem;
-  background-color: rgb(24, 21, 21);
-  box-shadow: rgba(105, 88, 88, 0.35) 0px 5px 15px;
-  border-radius: 20px;
-  z-index: 2;
-  .form-header {
-    color: greenyellow;
+  .register-container {
+    position: relative;
+    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid white;
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-    font-size: 5vh;
-    font-family: 'Courier New', Courier, monospace;
+    width: 30%;
+    max-width: 800px;
+    margin: 0 auto; 
+    padding: 20px; 
+    box-sizing: border-box; 
+
+    @media only screen and (max-width: 1024px) {
+      width: 70%;
+    }
+
+    @media only screen and (max-width: 768px) {
+      width: 80%;
+    }
+
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+    }
+
+    .form-container {
+      width: 100%;
+      padding: 2rem;
+      background-color: rgb(24, 21, 21);
+      box-shadow: rgba(105, 88, 88, 0.35) 0px 5px 15px;
+      border-radius: 20px;
+      z-index: 2;
+
+      .form-header {
+        color: greenyellow;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid white;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+        font-size: 5vh;
+        font-family: 'Courier New', Courier, monospace;
+      }
+
+      .form-content {
+        width: 100%;
+        box-sizing: border-box;
+
+        .form-group {
+          display: flex;
+          flex-direction: column;
+
+          input {
+            width: 70%;
+            margin: 15px auto;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #333;
+            color: #fff;
+            font-size: 1rem;
+          }
+        }
+
+        button {
+          padding: 10px 15px;
+          display: block;
+          margin: 15px auto;
+          background-color: greenyellow;
+          color: black;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 1rem;
+          transition: background-color 0.3s;
+          font-family: 'Courier New', Courier, monospace;
+
+          &:hover {
+            background-color: #b3d700;
+          }
+        }
+
+        .account-link {
+          display: block;
+          text-align: center;
+          margin-top: 10px;
+          color: greenyellow;
+          text-decoration: none;
+          font-size: 0.9rem;
+          font-family: 'Courier New', Courier, monospace;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
   }
+}
 
-  .form-content {
-    width: 100%;
-    box-sizing: border-box;
+// Profile Page
+.profile-page {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to right, #000, yellowgreen, #000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    .form-group {
-      display: flex;
-      flex-direction: column;
+  .user-info-container {
+    max-width: 800px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    border: 2px solid black;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 
-      input {
-        width: 70%;
-        margin: 15px auto;
-        padding: 10px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        background-color: #333;
-        color: #fff;
-        font-size: 1rem;
-      }
-    }
-
-    button {
-      padding: 10px 15px;
-      display: block;
-      margin: 15px auto;
-      background-color: greenyellow;
-      color: black;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: background-color 0.3s;
-      font-family: 'Courier New', Courier, monospace;n
-      &:hover {
-        background-color: #b3d700;
-      }
-    }
-
-    .account-link {
-      display: block;
-      text-align: center;
-      margin-top: 10px;
-      color: greenyellow;
-      text-decoration: none;
-      font-size: 0.9rem;
+    .user-info,
+    .user-header {
+      width: 100%;
+      height: 100px;
+      border-bottom: 2px solid black;
       font-family: 'Courier New', Courier, monospace;
-      &:hover {
-        text-decoration: underline;
+      font-size: 3vh;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      word-wrap: break-word;
+
+      &:last-child {
+        border: none;
       }
+    }
+
+    .user-header {
+      font-size: 4vh;
+      letter-spacing: 1vh;
+    }
+
+    @media only screen and (max-width: 1024px) {
+      width: 70%;
+    }
+
+    @media only screen and (max-width: 768px) {
+      width: 80%;
+    }
+
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+    }
+
+    .logout-button{
+      padding: 15px;
+      background: linear-gradient(to right, #000, yellowgreen, #000);
+      font-size: 2vh;
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: bold;
     }
   }
 }
